@@ -13,8 +13,9 @@ import path from "path";
 
 dotenv.config();
 const app = express();
-// app.use(cors({ credentials: true, origin: "https://shareit.herokuapp.com/" }));
-app.use(cors());
+const __dirname = path.resolve();
+app.use(cors({ credentials: true, origin: "https://finalprojecttestclient.onrender.com/" }));
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

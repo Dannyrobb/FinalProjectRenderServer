@@ -136,6 +136,7 @@ export const updateReviewReply = async (req, res) => {
 };
 
 export const getAllReviews = async (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", "true");
   try {
     const reviews = await Reviews.findAll({
       include: [Users, Businesses],

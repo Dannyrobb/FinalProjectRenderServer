@@ -10,7 +10,9 @@ import businessRouter from "./routes/Buisnesses.js";
 import locationsRouter from "./routes/Locations.js";
 import reviewsRouter from "./routes/Reviews.js";
 import path from "path";
-
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 dotenv.config();
 const app = express();
 app.use(cors());

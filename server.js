@@ -13,8 +13,7 @@ import path from "path";
 
 dotenv.config();
 const app = express();
-const __dirname = path.resolve();
-app.use(cors({ credentials: true, origin: "https://finalprojecttestclient.onrender.com/" }));
+app.use(cors());
 
 app.use(cookieParser());
 app.use(express.json());
@@ -31,3 +30,9 @@ try {
 } catch (e) {
   console.log(e);
 }
+
+app.use(express.static(path.join(__dirname, "client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
